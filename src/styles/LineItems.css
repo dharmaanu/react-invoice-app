@@ -1,0 +1,12 @@
+label {
+	display: inline-block;
+}
+
+input {
+	display: inline-block;
+}
+
+h5 {
+	display:inline;
+	align-self: auto;
+}

@@ -1,0 +1,12 @@
+.invoice {
+	align-items: left;
+}
+
+button {
+    align-items: left;
+    align-content: center;
+    width: inherit;
+    float: left;
+    margin-left: 35%;
+}
+
