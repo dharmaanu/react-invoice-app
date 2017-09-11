@@ -6,7 +6,7 @@ class Total extends Component {
     render() {
         return (< h3 > Total: { 
                 this.props.lineItems.reduce((sum, i) => (
-                    sum = sum + parseFloat(i.amount)
+                    sum = sum + +i.amount
                 ), 0)
         }$ < /h3>);
     }
