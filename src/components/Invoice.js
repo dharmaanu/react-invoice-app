@@ -3,14 +3,21 @@ import LineItems from './LineItems';
 import Customer from './Customer';
 import InvoiceDate from './InvoiceDate';
 import {generateInvoiceID} from '../utils/common';
+import Total from './Total';
 
 class Invoice extends Component {
   constructor() {
     super();
+    this.lineItemId = 0;
     this.state = {
       customerName: '',
       email: '',
-      date: ''
+      date: '',
+      lineItems: [{
+        id: this.lineItemId,
+        amount: '',
+        description: ''
+      }]
     };
   }
   
@@ -21,8 +28,35 @@ class Invoice extends Component {
   }
   
   handleSubmit = (evt) => {
-    const { name, shareholders } = this.state;
-    alert(`Incorporated: ${name} with ${shareholders.length} shareholders`);
+    /** TODO: Add logic to save to DB **/
+  }
+
+  handleDescriptionChange = (event) => {
+    this.setState({
+      lineItems: this.state.lineItems.map((lineItem) => (
+        parseInt(event.target.id, 10) === lineItem.id ? {...lineItem, description: event.target.value} : lineItem
+      ))
+    })
+  }
+
+  handleAmountChange = (event) => {
+    const currentLineItems = this.state.lineItems;
+    currentLineItems.map((lineItem) => (
+      parseInt(event.target.id, 10) === lineItem.id ? lineItem.amount = event.target.value : lineItem
+      ))
+    this.setState({lineItems: currentLineItems});
+  }
+
+  handleAddLineItem = () => {
+    this.lineItemId++;
+    this.setState({ 
+      lineItems: this.state.lineItems.concat([{ id: this.lineItemId, description: '', amount: ''}]) });
+  }
+  
+  handleRemoveLineItem = (event) => {
+    const newState = this.state.lineItems;
+    newState.splice(event.target.id, 1);
+    this.setState({lineItems: newState});
   }
 
   renderCustomer = () => {
@@ -31,6 +65,14 @@ class Invoice extends Component {
       email = {this.state.email}
       handleInputChange = {this.handleInputChange} />
       );
+  }
+
+  renderLineItems = () => {
+    return (
+    <LineItems lineItems={this.state.lineItems} handleLineAmountChange={this.handleAmountChange}
+    handleLineDescriptionChange={this.handleDescriptionChange} handleAddLine = {this.handleAddLineItem}
+    handleRemoveLine = {this.handleRemoveLineItem} />
+    );
   }
 
   renderDate = () => {
@@ -45,7 +87,8 @@ class Invoice extends Component {
       <form onSubmit={this.handleSubmit}>
         {this.renderCustomer()}
         {this.renderDate()}
-        <LineItems />
+        {this.renderLineItems()}
+        <Total lineItems={this.state.lineItems} />
         <button>Send</button>
       </form>
     )

@@ -11,12 +11,8 @@ class InvoiceDate extends Component {
         return (
         	<div id="invoiceDate">
         	<label> Invoice Date </label>
-            < input type = "date" name = "invoiceDate"
-            onChange = {
-                this.handleChange
-            }
-            />
-            < /div>
+            <input type = "date" name = "invoiceDate" onChange = {this.handleChange} />
+            </div>
         )
     }
 }

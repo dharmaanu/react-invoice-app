@@ -1,12 +1,20 @@
-label {
-	display: inline-block;
+tr,td,th {
+    display: inline-block;
+}
+
+table {
+    display: inline-block;
+    align-self: auto;
+}
+
+th {
+    width:180px;
+    font: bold 12px sans-serif !important;
+    display: inline-block;
+    padding: 10px;
 }
 
 input {
-	display: inline-block;
-}
-
-h5 {
-	display:inline;
-	align-self: auto;
+    display: inline-block;
+    width: 180px;
 }

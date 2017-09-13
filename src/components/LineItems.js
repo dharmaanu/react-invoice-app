@@ -1,75 +1,50 @@
-import React, {
-    Component
-}
-from 'react';
+import React, {Component} from 'react';
 import '../styles/LineItems.css';
-import Total from './Total';
+import AmountDescription from './AmountDescription';
 
 class LineItems extends Component {
-   constructor() {
-    super();
-    this.state = {
-      lineItems: [{ description: '' , amount: '' }],
-      total: 0
-    };
-  }
-  
-  handleDescriptionChange = (idx) => (evt) => {
-    const newLineItems = this.state.lineItems.map((lineitem, sidx) => {
-      if (idx !== sidx) return lineitem;
-      return { ...lineitem, description: evt.target.value};
-    });
-    
-    this.setState({ lineItems: newLineItems });
+
+  handleDescriptionChange = (event) => {
+   this.props.handleLineDescriptionChange(event);
   }
 
-  handleAmountChange = (index, val) => {
-    this.setState({
-      lineItems: this.state.lineItems.map((lineItem, i) => (
-        i === index ? {...lineItem, amount: val} : lineItem
-      ))
-    })
+  handleAmountChange = (event) => {
+   this.props.handleLineAmountChange(event);
+
   }
 
   handleAddLineItem = () => {
-    this.setState({ lineItems: this.state.lineItems.concat([{ description: '', amount: ''}]) });
+    this.props.handleAddLine();
   }
   
-  handleRemoveLineItem = (item) => {
-    const newState = this.state.lineItems;
-    if (newState.indexOf(item) > -1) {
-      newState.splice(newState.indexOf(item), 1);
-      this.setState({lineItems: newState})
-    }
+  handleRemoveLineItem = (event) => {
+    this.props.handleRemoveLine(event);
   }
   
   render() {    
     return (
-      <div>
-           <h5 style={{margin:30}}>Description</h5><h5 style={{margin:45}}>Amount</h5>
-      
-        {this.state.lineItems.map((lineItem, index) => (
-         <div key={`lineItem-${index}`}>        
-            <input
-              type="text"
-              placeholder={`Product/Service ${index+1}`}
-              value={this.state.lineItems[index].description} key={`lineItem.description.name-${index}`}
-              onChange={this.handleDescriptionChange(index)}
-            />
-
-            <input
-              type="text"
-              placeholder={`Amount`}
-              value={this.state.lineItems[index].amount} key={`lineItem.amount.name-${index}`}
-              onChange={e => this.handleAmountChange(index, (e.target.value) || 0)}
-            />
-      
-            <button type="button" onClick={this.handleRemoveLineItem.bind(this, lineItem)} className="small">-</button>
-          </div>
+      <div className='line-item'>
+        {this.props.lineItems.map((lineItem) => (
+          <div key={lineItem.id} id={lineItem.id}>
+          <table>
+            {lineItem.id === 0 && 
+              <thead>
+                <tr>
+                  <th>{`Description`}</th>
+                  <th>{`Amount`}</th>
+                </tr>
+              </thead>
+            }       
+           <AmountDescription id={lineItem.id} handleAmountChange={this.handleAmountChange}
+            handleDescriptionChange={this.handleDescriptionChange} amount={lineItem.amount} 
+            description={lineItem.description} handleRemoveLineItem={this.handleRemoveLineItem} />
+            </table>
+            </div>          
         ))}
         
-        <button type="button" onClick={this.handleAddLineItem} className="small">Add Item</button>
-        <Total lineItems={this.state.lineItems} />
+        <div className ='add-button-div'>
+        <button type="button" onClick={this.handleAddLineItem} className="small">Add Item</button> 
+        </div>       
         </div>
     )
   }
