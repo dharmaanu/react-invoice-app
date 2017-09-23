@@ -1,5 +1,5 @@
 .invoice {
-	align-items: left;
+	align-items: center;
 }
 
 button {
@@ -10,3 +10,9 @@ button {
     margin-left: 35%;
 }
 
+@media screen and (max-width:420px) {
+
+.invoice, button {
+	width: 100%;
+}
+}

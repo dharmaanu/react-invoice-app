@@ -1,8 +1,5 @@
-import uuid from 'node-uuid';
 
-class common {
-generateInvoiceID = () => { return "INV"+uuid.v1(); }
+export function generateInvoiceID () { return "INV"+Math.floor(1000 + Math.random() * 9000); }
 
-}
 
-export default common;
+

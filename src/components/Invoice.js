@@ -4,6 +4,7 @@ import Customer from './Customer';
 import InvoiceDate from './InvoiceDate';
 import {generateInvoiceID} from '../utils/common';
 import Total from './Total';
+import {convertToTraditionalFormat} from '../utils/dateUtil';
 
 class Invoice extends Component {
   constructor() {
@@ -12,7 +13,7 @@ class Invoice extends Component {
     this.state = {
       customerName: '',
       email: '',
-      date: '',
+      date: convertToTraditionalFormat(new Date()),
       lineItems: [{
         id: this.lineItemId,
         amount: '',
@@ -26,9 +27,22 @@ class Invoice extends Component {
             : e.currentTarget.value
   });
   }
+
+  handleDateChange = (e) => {
+    this.setState({ date: convertToTraditionalFormat(e.currentTarget.value) })
+  }
   
   handleSubmit = (evt) => {
-    /** TODO: Add logic to save to DB **/
+    const invoiceID = generateInvoiceID();
+    let invoiceDetails = {
+      name: this.state.customerName,
+      email: this.state.email,
+      date: this.state.date,
+      lineItems: this.state.lineItems
+    }
+    localStorage.setItem(invoiceID, JSON.stringify(invoiceDetails));
+    alert(`Invoice ${invoiceID} saved!!`);
+
   }
 
   handleDescriptionChange = (event) => {
@@ -54,10 +68,13 @@ class Invoice extends Component {
   }
   
   handleRemoveLineItem = (event) => {
-    const newState = this.state.lineItems;
-    newState.splice(event.target.id, 1);
-    this.setState({lineItems: newState});
-  }
+    const newItems = this.state.lineItems;
+    var itemIndex = parseInt(event.target.id, 10);
+    newItems.splice(newItems.indexOf(event.target.id), 1);
+    this.setState({
+        lineItems: newItems
+    });
+}
 
   renderCustomer = () => {
     return (
@@ -78,7 +95,7 @@ class Invoice extends Component {
   renderDate = () => {
     return (
     <InvoiceDate date={this.state.date}
-    handleInputChange={this.handleInputChange} />
+    handleInputChange={this.handleDateChange} />
     );
   }
   

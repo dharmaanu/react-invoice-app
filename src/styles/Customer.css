@@ -1,6 +1,6 @@
 label {
     width:180px;
-    text-align:left;
+    text-align:center;
     font: bold 12px sans-serif !important;
     display: inline-block;
 }
@@ -8,4 +8,11 @@ label {
 input {
     display: inline-block;
     width: 180px;
+}
+
+@media screen and (max-width:420px) {
+
+label, input {
+	width: 100%;
+}
 }
