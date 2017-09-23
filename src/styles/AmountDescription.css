@@ -1,0 +1,39 @@
+input {
+    width:100px;
+    display: inline-block;
+    margin-left: 10px
+}
+.description {
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    width: 400px;
+    height: 34px;
+    font-family: sans-serif;
+    font-size: 18px;
+    align-self: auto;
+    margin-left: 10px;
+}
+
+.amount {
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    width: 200px;
+    height: 34px;
+    font-size: 18px;
+    font-style: normal;
+    font-family: sans-serif;
+    align-self: auto;
+    margin-left: 10px;
+    text-align: right;
+}
+tr {
+	padding-left: 80px;
+}
+@media screen and (max-width:420px) {
+
+input{
+	width: 100%;
+}
+}

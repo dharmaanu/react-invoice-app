@@ -1,0 +1,9 @@
+thead {
+     display: table-header-group;
+}
+
+td {
+    padding: 10px;
+}
+
+th, td { width:180px }

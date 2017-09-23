@@ -1,7 +1,6 @@
 tr,td,th {
     display: inline-block;
 }
-
 table {
     display: inline-block;
     align-self: auto;
@@ -13,8 +12,13 @@ th {
     display: inline-block;
     padding: 10px;
 }
+thead {
+	align-content: left
+}
 
-input {
-    display: inline-block;
-    width: 180px;
+@media screen and (max-width:420px) {
+
+table,th,tr,td {
+	width: 100%;
+}
 }

@@ -25,13 +25,13 @@ class LineItems extends Component {
     return (
       <div className='line-item'>
         {this.props.lineItems.map((lineItem) => (
-          <div key={lineItem.id} id={lineItem.id}>
+          <div key={lineItem.id} id={lineItem.id} className='items'>
           <table>
             {lineItem.id === 0 && 
               <thead>
                 <tr>
-                  <th>{`Description`}</th>
-                  <th>{`Amount`}</th>
+                  <th><label className='description-label'>{`Description`}</label></th>
+                  <th><label className='amount-label'>{`Amount`}</label></th>
                 </tr>
               </thead>
             }       

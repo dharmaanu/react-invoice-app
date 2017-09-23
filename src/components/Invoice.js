@@ -35,6 +35,7 @@ class Invoice extends Component {
   handleSubmit = (evt) => {
     const invoiceID = generateInvoiceID();
     let invoiceDetails = {
+      id: invoiceID,
       name: this.state.customerName,
       email: this.state.email,
       date: this.state.date,
