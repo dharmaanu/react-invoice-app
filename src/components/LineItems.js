@@ -43,7 +43,7 @@ class LineItems extends Component {
         ))}
         
         <div className ='add-button-div'>
-        <button type="button" onClick={this.handleAddLineItem} className="small">+</button> 
+        <button type="button" onClick={this.handleAddLineItem} className="plus-button">+</button> 
         </div>       
         </div>
     )

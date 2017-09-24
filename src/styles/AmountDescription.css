@@ -1,8 +1,9 @@
 input {
-    width:100px;
+    width: 100px;
     display: inline-block;
     margin-left: 10px
 }
+
 .description {
     display: inline-block;
     box-sizing: border-box;
@@ -12,7 +13,6 @@ input {
     font-family: sans-serif;
     font-size: 18px;
     align-self: auto;
-    margin-left: 10px;
 }
 
 .amount {
@@ -25,15 +25,49 @@ input {
     font-style: normal;
     font-family: sans-serif;
     align-self: auto;
-    margin-left: 10px;
-    text-align: right;
+    text-align: left;
 }
-tr {
-	padding-left: 80px;
-}
-@media screen and (max-width:420px) {
 
-input{
-	width: 100%;
+.minus-button {
+    width: 30px;
+    margin-left: -10px;
+    font-style: bold;
+    font-size : 20px
+}
+
+tr {
+    padding-left: 80px;
+}
+
+@media screen and (max-width:400px) {
+    .description {
+        width: 100%;
+        border-bottom-width: 1px;
+        border-top-width: 0px;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        margin-left: 0px;
+        align-self: left;
+    }
+    .amount {
+        width: 100%;
+        border-bottom-width: 1px;
+        border-top-width: 0px;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        margin-left: 0px;
+        align-self: left;
+    }
+    
+    tr {
+        padding-left: 0px;
+    }
+    
+    tbody {
+        margin-left: 0px;
+    }
+    .minus-button {
+    width: 30px;
+
 }
 }

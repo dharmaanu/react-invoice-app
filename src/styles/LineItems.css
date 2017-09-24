@@ -12,13 +12,22 @@ th {
     display: inline-block;
     padding: 10px;
 }
+
+.plus-button {
+    font-size : 20px
+}
+
 thead {
-	align-content: left
+    align-content: left
 }
 
 @media screen and (max-width:420px) {
 
-table,th,tr,td {
+table,th,tr,td,label {
 	width: 100%;
+    margin-left: 0px;
+}
+.items {
+	align-content: right;
 }
 }

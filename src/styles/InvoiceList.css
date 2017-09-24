@@ -6,4 +6,8 @@ td {
     padding: 10px;
 }
 
+.invoice-list {
+	overflow-x: auto;
+}
+
 th, td { width:180px }

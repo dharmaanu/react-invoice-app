@@ -4,7 +4,7 @@ import React, {
 from 'react';
 class Total extends Component {
     render() {
-        return (< h3 > Total: { 
+        return (<h3> Total: { 
                 this.props.lineItems.reduce((sum, i) => (
                     sum = sum + +i.amount
                 ), 0)

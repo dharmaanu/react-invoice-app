@@ -10,7 +10,7 @@ class InvoiceList extends Component {
       invoices: getInvoices(),
     };
   }
-  
+
   render() {    
     return (
       <div className="invoice-list">

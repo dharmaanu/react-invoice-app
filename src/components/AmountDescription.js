@@ -29,14 +29,14 @@ render() {
             <td>
             <input
               type="text" id={this.props.id} key={this.props.id}
-              placeholder={`Amount`} className="amount"
-              defaultValue={this.props.amount} 
+              className="amount" defaultValue={this.props.amount} 
+              placeholder={`Amount`}
               onBlur={(e) => this.handleAmountChange(e)}
             />
             </td>
             <td>
             <button type="button" id={this.props.id} key={this.props.id} 
-            onClick={(e) => this.handleRemoveLineItem(e)} className="small">-</button></td>
+            onClick={(e) => this.handleRemoveLineItem(e)} className="minus-button">-</button></td>
             </tr>
             </tbody>         
         );

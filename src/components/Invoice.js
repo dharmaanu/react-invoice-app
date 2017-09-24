@@ -5,6 +5,7 @@ import InvoiceDate from './InvoiceDate';
 import {generateInvoiceID} from '../utils/common';
 import Total from './Total';
 import {convertToTraditionalFormat} from '../utils/dateUtil';
+import '../styles/Invoice.css';
 
 class Invoice extends Component {
   constructor() {
@@ -106,8 +107,8 @@ class Invoice extends Component {
         {this.renderCustomer()}
         {this.renderDate()}
         {this.renderLineItems()}
-        <Total lineItems={this.state.lineItems} />
-        <button>Send</button>
+        <Total lineItems={this.state.lineItems}  />
+        <button className="submit">Send</button>
       </form>
     )
   }

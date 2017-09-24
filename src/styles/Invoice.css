@@ -1,13 +1,8 @@
-.invoice {
-	align-items: center;
-}
-
-button {
-    align-items: left;
-    align-content: center;
-    width: inherit;
-    float: left;
-    margin-left: 35%;
+.submit {
+    font-style: bold 16px sans-serif !important;
+    background-color: green;
+    width: 100px;
+    font-size : 20px
 }
 
 @media screen and (max-width:420px) {
