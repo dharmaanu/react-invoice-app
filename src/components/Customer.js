@@ -3,7 +3,10 @@ import React, {
 }
 from 'react';
 import '../styles/Customer.css';
-
+/**
+    Component that handles rendering Customer name & email and 
+    lifts up their onChange events.
+**/
 class Customer extends Component {
 
     componentDidMount() {
@@ -15,7 +18,7 @@ class Customer extends Component {
     }
 
     render() {
-        return ( < div id = "customer" >
+        return (<div id = "customer" >
             <div id="customerName" >
             <label>Customer Name</label> <input type = "text"
             placeholder = "Customer Name" className="customer-name"
@@ -32,7 +35,9 @@ class Customer extends Component {
             placeholder = "Email address" className="customer-email"
             name = "email" value = {this.props.email}
             onChange = {this.handleChange}
-            />  </div> </div>
+            />
+            </div>
+            </div>
         )
     }
 }

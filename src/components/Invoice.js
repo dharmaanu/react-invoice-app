@@ -6,6 +6,10 @@ import {generateInvoiceID} from '../utils/common';
 import Total from './Total';
 import {convertToTraditionalFormat} from '../utils/dateUtil';
 import '../styles/Invoice.css';
+/**
+    Main component that holds the state. Date flows downward form Invoice to 
+    Customer, LineItems and InvoiceDate
+**/
 
 class Invoice extends Component {
   constructor() {
@@ -32,7 +36,9 @@ class Invoice extends Component {
   handleDateChange = (e) => {
     this.setState({ date: convertToTraditionalFormat(e.currentTarget.value) })
   }
-  
+  /**
+    Handle submit - Save the current state properties in localStorage
+  **/   
   handleSubmit = (evt) => {
     const invoiceID = generateInvoiceID();
     let invoiceDetails = {

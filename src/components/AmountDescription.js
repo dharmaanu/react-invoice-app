@@ -14,7 +14,10 @@ class AmountDescription extends Component {
     handleRemoveLineItem =(event) => {
     	this.props.handleRemoveLineItem(event);
     }
-
+/**
+    Renders Amount & Description Input fields that
+    are part of each LineItem
+**/
 render() {    
     return (
          <tbody>       
