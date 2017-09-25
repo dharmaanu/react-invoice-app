@@ -8,7 +8,6 @@ export function getInvoices() {
     	let invoiceKey = localStorage.key(i);
         invoiceArray[i] = JSON.parse(localStorage.getItem(invoiceKey));
     }
-    console.log(invoiceArray);
     return invoiceArray;
 }
 

@@ -20,7 +20,7 @@ render() {
          <tbody>       
          <tr key={this.props.id}><td>       
             <input
-              type="text" id={this.props.id} key={this.props.id} 
+              type="text" id={this.props.id} key={`desc-${this.props.id}`}
               placeholder={`Product/Service ${this.props.id+1}`}
               defaultValue={this.props.description} className="description"
               onBlur={(e) => this.handleDescriptionChange(e)}
@@ -28,7 +28,7 @@ render() {
             </td>
             <td>
             <input
-              type="text" id={this.props.id} key={this.props.id}
+              type="text" id={this.props.id} key={`amount-${this.props.id}`}
               className="amount" defaultValue={this.props.amount} 
               placeholder={`Amount`}
               onBlur={(e) => this.handleAmountChange(e)}

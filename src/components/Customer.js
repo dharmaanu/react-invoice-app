@@ -18,17 +18,18 @@ class Customer extends Component {
         return ( < div id = "customer" >
             <div id="customerName" >
             <label>Customer Name</label> <input type = "text"
-            placeholder = "Customer Name"
+            placeholder = "Customer Name" className="customer-name"
             ref = {
                 (input) => {
                     this.customer = input;
                 }
             }
             name = "customerName" value = {this.props.customerName}
-            onChange = {this.handleChange}/> </div>
+            onChange = {this.handleChange}/> 
+            </div>
             <div id = "emailAddress">
             <label> Email Address </label> <input type = "email"
-            placeholder = "Email address"
+            placeholder = "Email address" className="customer-email"
             name = "email" value = {this.props.email}
             onChange = {this.handleChange}
             />  </div> </div>

@@ -71,7 +71,6 @@ class Invoice extends Component {
   
   handleRemoveLineItem = (event) => {
     const newItems = this.state.lineItems;
-    var itemIndex = parseInt(event.target.id, 10);
     newItems.splice(newItems.indexOf(event.target.id), 1);
     this.setState({
         lineItems: newItems

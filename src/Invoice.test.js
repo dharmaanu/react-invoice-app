@@ -9,6 +9,8 @@ import Total from './components/Total';
 import {expect} from 'chai';
 import {convertToTraditionalFormat} from './utils/dateUtil';
 import {generateInvoiceID} from './utils/common';
+import sinon from "sinon";
+import localStorage from 'mock-local-storage';
 
 it('Invoice renders without crashing', () => {
   shallow(<Invoice />);
