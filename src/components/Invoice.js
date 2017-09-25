@@ -3,11 +3,12 @@ import LineItems from './LineItems';
 import Customer from './Customer';
 import InvoiceDate from './InvoiceDate';
 import {generateInvoiceID} from '../utils/common';
+import {validateLineItems} from '../utils/common';
 import Total from './Total';
 import {convertToTraditionalFormat} from '../utils/dateUtil';
 import '../styles/Invoice.css';
 /**
-    Main component that holds the state. Date flows downward form Invoice to 
+    Main component that holds the state. Data flows downward form Invoice to 
     Customer, LineItems and InvoiceDate
 **/
 
@@ -37,21 +38,29 @@ class Invoice extends Component {
     this.setState({ date: convertToTraditionalFormat(e.currentTarget.value) })
   }
   /**
-    Handle submit - Save the current state properties in localStorage
+    Handle submit - Save current state properties in localStorage
   **/   
   handleSubmit = (evt) => {
-    const invoiceID = generateInvoiceID();
-    let invoiceDetails = {
-      id: invoiceID,
-      name: this.state.customerName,
-      email: this.state.email,
-      date: this.state.date,
-      lineItems: this.state.lineItems
-    }
-    localStorage.setItem(invoiceID, JSON.stringify(invoiceDetails));
-    alert(`Invoice ${invoiceID} saved!!`);
+     const invoiceID = generateInvoiceID();
+     let invoiceDetails = {
+         id: invoiceID,
+         name: this.state.customerName,
+         email: this.state.email,
+         date: this.state.date,
+         lineItems: this.state.lineItems
+     }
+  /** Validation to check whether lineItems have a valid amount 
+      If not block saving invoice
+  **/
+     if (validateLineItems(this.state.lineItems)) {
+         localStorage.setItem(invoiceID, JSON.stringify(invoiceDetails));
+         alert(`Invoice ${invoiceID} saved!!`);
+     } else {
+         alert(`One or more required fields are empty`);
+         evt.preventDefault();
+     }
 
-  }
+ }
 
   handleDescriptionChange = (event) => {
     this.setState({

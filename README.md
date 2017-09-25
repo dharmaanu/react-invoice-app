@@ -32,6 +32,10 @@ $ npm start
 ## Execute Tests
 
 ```sh
+npm i --save react-test-renderer
+```
+
+```sh
 $ yarn test [-- --coverage]
 ```
 or

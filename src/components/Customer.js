@@ -20,7 +20,7 @@ class Customer extends Component {
     render() {
         return (<div id = "customer" >
             <div id="customerName" >
-            <label>Customer Name</label> <input type = "text"
+            <label>Customer Name</label> <input type = "text" required
             placeholder = "Customer Name" className="customer-name"
             ref = {
                 (input) => {
@@ -33,7 +33,7 @@ class Customer extends Component {
             <div id = "emailAddress">
             <label> Email Address </label> <input type = "email"
             placeholder = "Email address" className="customer-email"
-            name = "email" value = {this.props.email}
+            name = "email" value = {this.props.email} required
             onChange = {this.handleChange}
             />
             </div>

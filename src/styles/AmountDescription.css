@@ -49,6 +49,7 @@ tr {
         margin-left: 0px;
         align-self: left;
     }
+    
     .amount {
         width: 100%;
         border-bottom-width: 1px;
@@ -66,8 +67,9 @@ tr {
     tbody {
         margin-left: 0px;
     }
+    
     .minus-button {
-    width: 30px;
+        width: 30px;
+    }
 
-}
 }
