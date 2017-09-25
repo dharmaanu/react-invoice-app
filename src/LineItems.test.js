@@ -33,5 +33,4 @@ it('Add button click should call onClick handler', () => {
   wrapper.find('.plus-button').simulate("click");
   expect(changeHandler.calledOnce).to.be.true;
 });
-
 });

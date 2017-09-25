@@ -15,27 +15,27 @@ class InvoiceList extends Component {
     return (
       <div className="invoice-list">
       <h1> Invoice List </h1>
-      <table>
-        <thead>
-            <tr>
-                <th>Inv #</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Issue Date</th>
-                <th># of Items</th>
-                <th>Total</th>
+      <table className="invoiceList-table">
+        <thead className="invoiceList-head">
+            <tr className="invoiceList-row">
+                <th className="invoiceList-th">Inv #</th>
+                <th className="invoiceList-th">Name</th>
+                <th className="invoiceList-th">Email</th>
+                <th className="invoiceList-th">Issue Date</th>
+                <th className="invoiceList-th"># of Items</th>
+                <th className="invoiceList-th">Total</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody className="invoiceList-tbody">
         {this.state.invoices &&
         this.state.invoices.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.id}</td>
-                  <td>{item.name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.date}</td>
-                  <td>{item.lineItems.length}</td>
-                  <td>{item.lineItems.reduce((sum, i) => (
+                <tr className="invoiceList-row" key={item.id}>
+                  <td className="invoiceList-td">{item.id}</td>
+                  <td className="invoiceList-td">{item.name}</td>
+                  <td className="invoiceList-td">{item.email}</td>
+                  <td className="invoiceList-td">{item.date}</td>
+                  <td className="invoiceList-td">{item.lineItems.length}</td>
+                  <td className="invoiceList-td">{item.lineItems.reduce((sum, i) => (
                     sum = sum + +i.amount
                 ), 0)}$</td>
                 </tr>
