@@ -18,7 +18,7 @@ export function getInvoices() {
 }
 
 export function validateUsername(state) {
-    return ((state.customerName) && (state.customerName.trim() != ''))
+    return ((state.customerName) && (state.customerName.trim() !== ''))
 }
 
 export function validateLineItems(lineItems) {

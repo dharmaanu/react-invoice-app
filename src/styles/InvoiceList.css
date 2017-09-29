@@ -3,7 +3,8 @@ Generic Styling, for Desktops/Laptops
 */
 .invoiceList-table { 
   width: 100%; 
-  border-collapse: collapse; 
+  border-collapse: collapse;
+  align-self: center;
 }
 .invoiceList-th { 
   background: #333; 
